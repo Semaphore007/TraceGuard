@@ -1,0 +1,12 @@
+'use client'
+
+import Link from 'next/link'
+import { useState } from 'react'
+import { ArrowRight, ShieldCheck } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+
+export default function LoginPage() {
+  const [submitted, setSubmitted] = useState(false)
+  return <main className="flex min-h-screen items-center justify-center bg-slate-950 px-5 py-10 text-white"><Card className="w-full max-w-md border-white/10 bg-white/[0.06] text-white shadow-2xl"><CardHeader className="gap-5"><Link href="/dashboard" className="flex items-center gap-3"><span className="flex size-10 items-center justify-center rounded-xl bg-cyan-400 text-slate-950"><ShieldCheck className="size-5" /></span><span className="text-lg font-semibold">TraceGuard</span></Link><div><CardTitle className="text-2xl">Sign in to your workspace</CardTitle><CardDescription className="mt-2 text-slate-400">Monitor every shipment before a complaint is filed.</CardDescription></div></CardHeader><CardContent><form className="flex flex-col gap-4" onSubmit={(event) => { event.preventDefault(); setSubmitted(true) }}><label className="flex flex-col gap-2 text-sm text-slate-200" htmlFor="email">Work email<input id="email" type="email" placeholder="ops@yourcompany.com" required className="h-10 rounded-md border border-white/10 bg-white/10 px-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-cyan-400" /></label><label className="flex flex-col gap-2 text-sm text-slate-200" htmlFor="password">Password<input id="password" type="password" placeholder="Enter your password" required className="h-10 rounded-md border border-white/10 bg-white/10 px-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-cyan-400" /></label><Button type="submit" className="mt-2 w-full bg-cyan-400 text-slate-950 hover:bg-cyan-300">{submitted ? 'Access requested' : 'Continue'}<ArrowRight data-icon="inline-end" /></Button>{submitted && <p className="text-center text-xs text-emerald-300">Demo access confirmed. <Link href="/dashboard" className="underline">Open command center</Link></p>}</form><div className="mt-6 border-t border-white/10 pt-5 text-center text-xs text-slate-400">New to TraceGuard? <button type="button" className="text-cyan-300 hover:underline">Request an account</button></div></CardContent></Card></main>
+}

@@ -1,0 +1,3 @@
+import { PageFrame } from '@/components/traceguard-shell'
+import { Card, CardContent } from '@/components/ui/card'
+export default function AlertsPage(){return <PageFrame><div className="mx-auto max-w-[1400px]"><p className="text-xs text-muted-foreground">Operations / Alerts</p><h1 className="mt-4 text-2xl font-semibold">Alert queue</h1><p className="mt-1 text-sm text-muted-foreground">Prioritized incidents detected before customer complaints.</p><Card className="mt-6 shadow-none"><CardContent className="p-8 text-sm text-muted-foreground">The live alert queue is also available in the command center. Select an incident to begin an investigation.</CardContent></Card></div></PageFrame>}
